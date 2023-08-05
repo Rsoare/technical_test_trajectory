@@ -3,5 +3,5 @@ export interface iDefaultProviderProps {
 }
 
 export interface iWeatherContext{
-   
+   getCurrentWeather: () => Promise<void>
 }

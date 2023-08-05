@@ -1,7 +1,12 @@
+// import { useContext, useEffect } from "react";
+// import { WaetherContext } from "../../contexts/weather";
 
+export const Dashboard = () => {
+   // const { getCurrentWeather } = useContext(WaetherContext);
 
-   export const Dashboard = () => {
-   return (
-      <div>index</div>
-   )
-   }
+   // useEffect(() => {
+   //    getCurrentWeather()
+   // }, []);
+
+   return <div>index</div>;
+};
