@@ -1,8 +1,17 @@
 import { ToastContainer } from "react-toastify";
+import { Router } from "./routes";
+import { GlobalStyles } from "./styles/global";
+import { GlobalTypography } from "./styles/Typography";
+import { WaetherProvide } from "./contexts/weather";
 
 function App() {
    return (
       <>
+         <GlobalStyles />
+         <GlobalTypography />
+         <WaetherProvide>
+            <Router />
+         </WaetherProvide>
          <ToastContainer
             position="top-center"
             autoClose={3500}
