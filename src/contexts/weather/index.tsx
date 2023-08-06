@@ -1,29 +1,66 @@
-import { createContext, } from "react";
-import { iDefaultProviderProps, iWeatherContext } from "./@types";
-import { api } from "../../services/api";
+import { createContext, useState } from "react";
+import {
+   iDefaultProviderProps,
+   iGeocoding,
+   iWaether,
+   iWeatherContext,
+} from "./@types";
+import { apiWeather, apiGeocoding } from "../../services/api";
+import { AxiosResponse } from "axios";
 
 export const WaetherContext = createContext({} as iWeatherContext);
 
 export const WaetherProvide = ({ children }: iDefaultProviderProps) => {
 
-   // const [waether, setWaether] = useState()
+   const [weathers, setWeathers] = useState<iWaether[]>([]);
 
-   const getCurrentWeather = async () => {
+   const keyApi = "2d030e32038fe9ecf2039f9a91cd35ad";
 
-      const keyApi = '2d030e32038fe9ecf2039f9a91cd35ad'
-      
+   const getGeocoding = async () => {
       try {
-         const response = await api.get(`/onecall?lat=33.44&lon=-94.04&appid=${keyApi}`);
+         const response: AxiosResponse<iGeocoding[]> = await apiGeocoding.get(
+            `/direct?q=paraná&limit=5&appid=${keyApi}&lang=pt_br`
+         );
 
-         // console.log(response)
+         localStorage.clear()
 
-         // setWaether(response)
+         response.data.forEach((geocoding) => {
+            getCurrentWeather(geocoding);
+         });
+
+      } catch (error) {
+         console.error(error);
+      }
+   };
+
+   const getCurrentWeather = async (geocoding: iGeocoding) => {
+      try {
+         const lat = geocoding.lat;
+         const lon = geocoding.lon;
+
+         const response: AxiosResponse<iWaether> = await apiWeather.get(
+            `/weather?lat=${lat}&lon=${lon}&appid=${keyApi}&units=metric&lang=pt_br`
+         );
+         
+
+         const newWeatherData = response.data;
+
+         const existingWeathers = JSON.parse(localStorage.getItem('@tecnical:weathers') || '[]') ;
+
+         if (!existingWeathers.some((weather:iWaether) => weather.id === newWeatherData.id)) {
+            const updatedWeathers = [...existingWeathers, newWeatherData];
+            localStorage.setItem('@tecnical:weathers', JSON.stringify(updatedWeathers));
+            setWeathers(updatedWeathers);
+         }
+
       } catch (error) {
          console.error(error);
       }
    };
 
    return (
-      <WaetherContext.Provider value={{getCurrentWeather}}>{children}</WaetherContext.Provider>
+      <WaetherContext.Provider value={{ getGeocoding, weathers}}>
+         {children}
+      </WaetherContext.Provider>
    );
 };

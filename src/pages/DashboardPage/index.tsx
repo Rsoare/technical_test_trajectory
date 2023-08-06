@@ -1,12 +1,20 @@
-// import { useContext, useEffect } from "react";
-// import { WaetherContext } from "../../contexts/weather";
+import { useContext, useEffect } from "react";
+import { WaetherContext } from "../../contexts/weather";
+import { Cards } from "../../components/Cards";
 
 export const Dashboard = () => {
-   // const { getCurrentWeather } = useContext(WaetherContext);
+   const { weathers, getGeocoding,} = useContext(WaetherContext);
 
-   // useEffect(() => {
-   //    getCurrentWeather()
-   // }, []);
 
-   return <div>index</div>;
+   useEffect(() => {
+      getGeocoding();
+   }, []);
+
+   return (
+   <ul>
+         {weathers.map(weather => <Cards key={weather.id} weather={weather}/>)}
+   </ul>
+   )
 };
+
+
