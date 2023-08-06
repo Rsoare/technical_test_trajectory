@@ -1,55 +1,60 @@
-
 import { iWaether } from "../../contexts/weather/@types";
+import { StyledCard } from "./styled";
 
-interface cardsProps{
-   weather: iWaether
+interface cardsProps {
+   weather: iWaether;
 }
 
-export const Cards = ({weather}: cardsProps) => {
+export const Cards = ({ weather }: cardsProps) => {
+   console.log(weather.weather[0].icon);
+   const urlIcon = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`;
 
    return (
-      <div>
-         <p>
-            <span>Temperatura: </span>
-            {weather.main.temp}
-         </p>
-         <p>
-            <span>Maxima: </span>
-            {weather.main.temp_max}
-         </p>
-         <p>
-            <span>Minima: </span>
-            {weather.main.temp_min}
-         </p>
-         <p>
-            <span>Sensação termica: </span>
-            {weather.main.feels_like}
-         </p>
-         <p>
-            <span>Humidade: </span>
-            {weather.main.humidity}
-         </p>
-         <p>
-            <span>Cidade: </span>
-            {weather.name}
-         </p>
-         <p>
-            <span>Pais: </span>
-            {weather.sys.country}
-         </p>
-         <p>
-            <span>Descrição: </span>
-            {weather.weather[0].description}
-         </p>
-         <p>
-            <span>Velocidade do vento: </span>
-            {weather.wind.speed}
-         </p>
-         <p>
-            <span>horario: </span>
-            {weather.timezone}
-         </p>
-      </div>
-   );
+      <StyledCard>
+         <div>
+            <li>
+               <img src={urlIcon} alt="" />
+            </li>
+            <li>
+               <span>{weather.main.temp.toFixed(0)}°C</span>
+            </li>
+         </div>
 
+         <li>
+            <span>{weather.weather[0].description}</span>
+         </li>
+
+         <div>
+            <li>
+               <span>Maxima: {weather.main.temp_max.toFixed(0)}°C</span>
+            </li>
+
+            <li>
+               <span>Minima: {weather.main.temp_min.toFixed(0)}°C</span>
+            </li>
+         </div>
+
+         <div>
+            <li>
+               <span>
+                  Sensação termica: {weather.main.feels_like.toFixed(0)}°C
+               </span>
+            </li>
+
+            <li>
+               <span>Humidade: {weather.main.humidity}%</span>
+            </li>
+         </div>
+
+         <div>
+            <li>
+               {weather.name}
+            </li>
+
+            <li>
+               {weather.sys.country}
+            </li>
+         </div>
+      </StyledCard>
+   );
 };

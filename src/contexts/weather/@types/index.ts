@@ -3,7 +3,7 @@ export interface iDefaultProviderProps {
 }
 
 export interface iWeatherContext{
-   getGeocoding: () => Promise<void>
+   getGeocoding: (data: string) => Promise<void>
    weathers: iWaether[]
 }
 

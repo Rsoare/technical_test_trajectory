@@ -16,10 +16,10 @@ export const WaetherProvide = ({ children }: iDefaultProviderProps) => {
 
    const keyApi = "2d030e32038fe9ecf2039f9a91cd35ad";
 
-   const getGeocoding = async () => {
+   const getGeocoding = async (data:string) => {
       try {
          const response: AxiosResponse<iGeocoding[]> = await apiGeocoding.get(
-            `/direct?q=paraná&limit=5&appid=${keyApi}&lang=pt_br`
+            `/direct?q=${data}&limit=1&appid=${keyApi}&lang=pt_br`
          );
 
          localStorage.clear()
@@ -48,8 +48,11 @@ export const WaetherProvide = ({ children }: iDefaultProviderProps) => {
          const existingWeathers = JSON.parse(localStorage.getItem('@tecnical:weathers') || '[]') ;
 
          if (!existingWeathers.some((weather:iWaether) => weather.id === newWeatherData.id)) {
+
             const updatedWeathers = [...existingWeathers, newWeatherData];
+
             localStorage.setItem('@tecnical:weathers', JSON.stringify(updatedWeathers));
+
             setWeathers(updatedWeathers);
          }
 

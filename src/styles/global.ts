@@ -17,9 +17,9 @@ import { createGlobalStyle } from 'styled-components';
    --grey-300: #212529;
    --grey-400: #121214;
    
-   --border-color:#D9D9D9;
+   --header-color:#1976d2;
 
-   --label-text-color:#1976d2;
+   --footer-color:#212529;
 
    --button-color-login:#1976d2;
 
@@ -36,7 +36,6 @@ import { createGlobalStyle } from 'styled-components';
    }
 
    body{
-      background-color:#e0e0e0  ;
       font-family: 'Roboto', sans-serif;
    }
    `;

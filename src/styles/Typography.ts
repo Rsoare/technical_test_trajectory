@@ -8,11 +8,11 @@ export const GlobalTypography = createGlobalStyle`
    letter-spacing: 0.10rem;
    color: var(--grey-0);
 }
-.Client.Name{
-   font-size: 1.4rem;
-   font-weight: 600;
-   letter-spacing: 0.10rem;
-   color: var(--grey-100);
+.Titles.Footer{
+   font-size: 0.8rem;
+   font-weight: 400;
+   letter-spacing: 0.08rem;
+   color: var(--grey-0);
 }
 .label{
    font-size: 0.90rem;
