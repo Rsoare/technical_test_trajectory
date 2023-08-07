@@ -1,27 +1,34 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { WaetherContext } from "../../contexts/weather";
+import { StyledForm } from "./styled";
+import { ButtonSearch } from "../../styles/buttons";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm,SubmitHandler } from "react-hook-form";
+import { InputSchema } from "./validate";
 
+export interface iNameCity{
+   name:string
+}
 export const SearchBar = () => {
    const { getGeocoding } = useContext(WaetherContext);
 
-   const [inputValue, setInputValue] = useState("");
+   const { register, handleSubmit, formState: { errors } } = useForm<iNameCity>({
+      resolver: zodResolver(InputSchema),
+   });
 
-   const submit = (event: { preventDefault: () => void }) => {
-      event.preventDefault();
-
-      getGeocoding(inputValue)
+   const submit:SubmitHandler<iNameCity> = (formData) => {
+      getGeocoding(formData);
+   }
    
-      setInputValue("");
-   };
-
    return (
-      <form onSubmit={submit}>
+      <StyledForm onSubmit={handleSubmit(submit)} noValidate>
          <input
             type="text"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
+            {...register("name")}
+            placeholder="Digite o nome da cidade"
          />
-         <button onClick={submit}>Perquisar</button>
-      </form>
+         {errors.name ? <p>{errors.name.message}</p> : null}
+         <ButtonSearch type="submit">Pesquisar</ButtonSearch>
+      </StyledForm>
    );
 };

@@ -17,11 +17,17 @@ import { createGlobalStyle } from 'styled-components';
    --grey-300: #212529;
    --grey-400: #121214;
    
-   --header-color:#1976d2;
+   --header-color:#00747A;
 
    --footer-color:#212529;
 
-   --button-color-login:#1976d2;
+   --temp-description-color:#F8F9FA;
+
+   --temp-title-color:#F8F9FA;
+
+   --temp-card-color:#323232;
+
+   --input-color:#868E96;
 
    --names-item-collections:#1976d2;
 }
@@ -37,5 +43,6 @@ import { createGlobalStyle } from 'styled-components';
 
    body{
       font-family: 'Roboto', sans-serif;
+      background-color:#121111;
    }
    `;

@@ -1,9 +1,11 @@
+import { iNameCity } from "../../../components/SearchBar";
+
 export interface iDefaultProviderProps {
    children: React.ReactNode;
 }
 
 export interface iWeatherContext{
-   getGeocoding: (data: string) => Promise<void>
+   getGeocoding: (data: iNameCity) => Promise<void>
    weathers: iWaether[]
 }
 

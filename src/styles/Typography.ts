@@ -14,27 +14,16 @@ export const GlobalTypography = createGlobalStyle`
    letter-spacing: 0.08rem;
    color: var(--grey-0);
 }
-.label{
-   font-size: 0.90rem;
-   font-weight: 400;
-   color: var(--label-text-color);
-}
-
-.Title.Modal{
-   font-size: 1.6rem;
+.Temp.Title{
+   font-size: 2.5rem;
    font-weight: 600;
-   color: var(--label-text-color);
+   color: var(--temp-title-color);
 }
 
-.description.Login{
-   font-size: 1.3rem;
+.Temp.Description{
+   font-size: 1.2rem;
    font-weight: 400;
-   color: var(--grey-200);
-}
-.Title.Collections{
-   font-size: 2rem;
-   font-weight: 400;
-   color: var(--grey-300);
+   color: var(--temp-description-color);
 }
 
 `
