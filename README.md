@@ -82,6 +82,16 @@
   
 #
 
+## Tecnologias Utilizadas
+- React
+- Vite
+- JavaScript
+- TypeScript
+- axios
+- React-Router-Dom
+- React-Toastify
+- Styled-Components
+- Zod
 
 
 
