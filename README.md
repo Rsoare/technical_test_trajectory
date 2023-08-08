@@ -1,27 +1,51 @@
-# React + TypeScript + Vite
+## Teste Tecnico [Trajetória Consultoria](https://www.trajetoriaconsultoria.com.br/) 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introdução
+- O projeto foi construído principalmente utilizando [React.js](https://react.dev/) + [Vite](https://vitejs.dev/guide/) + [TypeScript](https://www.typescriptlang.org/) Consulte as documentações oficiais para obter informações detalhadas e orientações específicas, caso necessário.
+  - Ducumentação - [React.js](https://react.dev/) 
+  - Ducumentação - [vite](https://vitejs.dev/guide/)
+  - Ducumentação - [TypeScript](https://www.typescriptlang.org/)
 
-Currently, two official plugins are available:
+- O projeto consiste em um MVP (Mínimo Produto Viável) de uma aplicação para consulta de informações meteorológicas de várias cidades do Brasil e do mundo, utilizando a API da [Openweathermap](https://openweathermap.org/) . Ao longo desta documentação, detalharei informações importantes sobre o desenvolvimento desta aplicação.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Acessar a aplicação na Vercel
+- Para facilitar o teste da aplicação, foi realizado o seu deploy na Vercel, eliminando assim a necessidade de inicializar a aplicação localmente.
+  - Basta accesar este link: https://technical-test-trajectory.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Inicializando a aplicação localmente
 
-- Configure the top-level `parserOptions` property like this:
+- Para iniciar a aplicação, basta realizar o clone desse repositorio inicie o terminal de comandos e realize sequência de comandos abaixo na raiz do projeto.
+ - Instalar as dependências
+ - Inicializar a aplicação
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Intalando Dependencias 
+```bash
+   npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Inicializando a aplicação
+```bash
+   npm run dev
+```
+## Funcionalidades da aplicação
+- Barra de pesquisa
+   - Ao digitar o nome da cidade desejada e enviar, será renderizado o card com as informações meteorológicas da cidade desejada
+- Renderização dos cards com informações meteorológicas
+   - A aplicação permite a renderização de até 5 cards simultaneamente. (Mais informações ao longo desta documentação.)
+- Atualização Automática
+  -  a aplicação esta configurada para atualizar as informaçoes da dashboard altomaticamente a cada 5 minutos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
