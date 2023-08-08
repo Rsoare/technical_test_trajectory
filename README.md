@@ -76,10 +76,11 @@
   ```
   - Basta alterar o ` limit=5 ` quese refere ao numero de cards a ser exibido
   - Exemplo: limit=1 para exibir no máximo 1 cards.
-    
 
-
-
+### Aviso 
+- Essa configuração so funcinara se a aplicação estiver funcinando localmente.
+  
+#
 
 
 
